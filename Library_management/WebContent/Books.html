@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/books.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <title>图书</title>
+    <style>
+    	.top_1{
+    		height: 50px;
+    		border: 1px #8C8C8C solid;
+    		text-align: center;
+    	}
+    	.p_1{
+    		width: 100px;
+    		float: left;
+    	}
+    	.div_1{
+    		width: 200px;
+    		margin-left: 200px;
+    		height: 25px;
+    		float: right;
+    		margin-top: 12px;
+    	}
+    </style>
+    <script>
+    	$(document).ready(function(){
+    		$("#modify_1").click(function(){
+    			alert($("#modify_1").parent().val())
+    			alert($("#modify_1").parent().prev().prev().html());
+    			$("#model_bookname").val($("#modify_1").parent().prev().prev().html());
+    			$("#model_bookintroduction").val($("#modify_1").parent().prev().html());
+    		})
+    		$("#aaa").click(function(){
+    			window.location.href = "Details.html";
+    		})
+    		$("#records").click(function(){
+    			window.location.href = "Records.html";
+    		})
+    	})
+    </script>
+</head>
+
+<body>
+    <div class="midtop">
+    	<div class="top_1">
+    		<div class="div_1">
+    			<p id="" class="p_1">张三</p>
+    			<p id="" class="p_2">退出</p>
+    		</div>
+    	</div>
+    	<div class="tianjia"><a id="records">借阅记录</a></div>
+        <div class="tianjia"><a data-toggle="modal" data-target="#addkuang" href="">添加</a></div>
+        <div class="jpsearch">
+            <label for="search-word" class="search-wenzi">关键字搜索</label>
+            <input type="text" class="search-word" placeholder="请输入书名">
+            <input type="button" class="search-submit" value="搜索">
+        </div>
+        <div class="conrong">
+            <div class="jueselist">
+                <ul>
+                    <li class="listborder" style="width: 20%;">书名</li>
+                    <li class="listborder" style="width: 60%;">简介</li>
+                    <li style="width: 20%;">操作</li>
+                </ul>
+            </div>
+            <div class="juesecon">
+                <ul>
+                    <li id="aaa">
+                        <ul>
+                            <li class="listborder" style="width: 20%;">有机管理员</li>
+                            <li class="listborder" style="width: 60%;">阿巴阿巴阿巴</li>
+                            <li style="width: 20%;">
+                                <a id="borrow" class="modify">借阅 </a>
+                                <a data-toggle="modal" data-target="#modifybox" class="modify" id="modify_1">修改</a>
+                                <a data-toggle="modal" data-target="#deletebox" class="delete">删除</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li class="listborder" style="width: 20%;">有机管理员</li>
+                            <li class="listborder" style="width: 60%;">阿巴阿巴阿巴</li>
+                            <li style="width: 20%;">
+                                <a id="borrow" class="modify">借阅 </a>
+                                <a data-toggle="modal" data-target="#modifybox" class="modify">修改</a>
+                                <a data-toggle="modal" data-target="#deletebox" class="delete">删除</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="fenye">
+                <a href="">
+                    <</a> <a class="active" href="">1
+                </a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">></a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade juesebox" id="addkuang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        添加角色信息
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="shurukuang" placeholder="有机管理员" value="admin">
+                    <div class="jueboxlist">
+                        <ul id="adddemo"></ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        保存
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade juesebox" id="modifybox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改角色信息
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="shurukuang" placeholder="书名" value="admin" id="model_bookname">
+                    <input class="jueboxlist" id="model_bookintroduction">
+                    </input>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        保存
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade delete" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        删除
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="newmiddle">
+                        您确定删除本条信息么?
+                    </div>
+                </div>
+                <div class="modalnews">
+                    <a class="newqueding" href="">确定</a><a class="newquxiao" href="">取消</a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+</body>
+
+</html>
